@@ -30,7 +30,7 @@ function updateCorrectionFactor() {
         correctionFactor = 0.9604;
         break;
       case 30.6:
-        correctionFactor = 0.96;
+        correctionFactor = 0.9600;
         break;
       case 30.7:
         correctionFactor = 0.9597;
@@ -65,7 +65,7 @@ function updateCorrectionFactor() {
         correctionFactor = 0.9594;
         break;
       case 30.6:
-        correctionFactor = 0.959;
+        correctionFactor = 0.9590;
         break;
       case 30.7:
         correctionFactor = 0.9586;
@@ -83,14 +83,11 @@ function updateCorrectionFactor() {
     correctionFactor = 1;
   }
 
-  document.getElementById("correction-factor").value =
-    correctionFactor.toFixed(4);
+  document.getElementById("correction-factor").value = correctionFactor.toFixed(4);
 }
 
 function updateConductorSpec() {
-  const crossSection = parseFloat(
-    document.getElementById("cross-section").value
-  );
+  const crossSection = parseFloat(document.getElementById("cross-section").value);
   const conductor = document.getElementById("conductor").value;
 
   let conductorSpec;
@@ -160,7 +157,7 @@ function updateConductorSpec() {
         conductorSpec = 0.0601;
         break;
       case 400:
-        conductorSpec = 0.047;
+        conductorSpec = 0.0470;
         break;
       case 500:
         conductorSpec = 0.0366;
@@ -187,7 +184,7 @@ function updateConductorSpec() {
         conductorSpec = 0.0101;
         break;
       case 2000:
-        conductorSpec = 0.009;
+        conductorSpec = 0.0090;
         break;
       default:
         conductorSpec = "N/A";
@@ -215,7 +212,7 @@ function updateConductorSpec() {
         conductorSpec = 1.91;
         break;
       case 25:
-        conductorSpec = 1.2;
+        conductorSpec = 1.20;
         break;
       case 35:
         conductorSpec = 0.868;
@@ -245,7 +242,7 @@ function updateConductorSpec() {
         conductorSpec = 0.125;
         break;
       case 300:
-        conductorSpec = 0.1;
+        conductorSpec = 0.100;
         break;
       case 400:
         conductorSpec = 0.0778;
@@ -285,27 +282,16 @@ function updateConductorSpec() {
     conductorMaterial = "";
   }
 
-  document.getElementById(
-    "conductor-spec"
-  ).value = `${conductorMaterial} ${crossSection} Spek Max: ${conductorSpec}`;
+  document.getElementById("conductor-spec").value = `${conductorMaterial} ${crossSection} Spek Max: ${conductorSpec}`;
 }
 
 function calculate() {
   const reading = parseFloat(document.getElementById("reading").value);
   const length = parseFloat(document.getElementById("length").value);
-  const correctionFactor = parseFloat(
-    document.getElementById("correction-factor").value
-  );
-  const conductorSpec = parseFloat(
-    document.getElementById("conductor-spec").value.split(" ").pop()
-  );
+  const correctionFactor = parseFloat(document.getElementById("correction-factor").value);
+  const conductorSpec = parseFloat(document.getElementById("conductor-spec").value.split(' ').pop());
 
-  if (
-    isNaN(reading) ||
-    isNaN(length) ||
-    isNaN(correctionFactor) ||
-    isNaN(conductorSpec)
-  ) {
+  if (isNaN(reading) || isNaN(length) || isNaN(correctionFactor) || isNaN(conductorSpec)) {
     document.getElementById("result").textContent = "-";
     document.getElementById("validation-result").textContent = "-";
     document.getElementById("result").style.color = "blue";
@@ -333,5 +319,5 @@ function calculate() {
 }
 
 function showSpec(spec) {
-  alert("Menampilkan spesifikasi: " + spec);
+  alert('Menampilkan spesifikasi: ' + spec);
 }
