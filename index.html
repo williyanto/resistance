@@ -15,18 +15,10 @@
       <h2 class="mb-3 text-center">Kalkulator Resistansi</h2>
       <div class="form-border p-4">
         <div class="d-flex justify-content-center mb-3">
-          <button class="btn btn-primary me-2" onclick="showSpec('IEC')">
-            Spec. IEC
-          </button>
-          <button class="btn btn-info me-2" onclick="showSpec('ICEA')">
-            Spec. ICEA
-          </button>
-          <button class="btn btn-success me-2" onclick="showSpec('AS/NZS')">
-            Spec. AS/NZS
-          </button>
-          <button class="btn btn-warning" onclick="window.print()">
-            Cetak Halaman
-          </button>
+          <button class="btn btn-primary me-2" onclick="showSpec('IEC')">Spec. IEC</button>
+          <button class="btn btn-info me-2" onclick="showSpec('ICEA')">Spec. ICEA</button>
+          <button class="btn btn-success me-2" onclick="showSpec('AS/NZS')">Spec. AS/NZS</button>
+          <button class="btn btn-warning" onclick="window.print()">Cetak Halaman</button>
         </div>
         <form id="calculator-form">
           <div class="mb-3">
@@ -67,11 +59,7 @@
           </div>
           <div class="mb-3">
             <label for="conductor" class="form-label">Bahan Konduktor:</label>
-            <select
-              class="form-control border-input"
-              id="conductor"
-              onchange="updateCorrectionFactor(); updateConductorSpec(); calculate();"
-            >
+            <select class="form-control border-input" id="conductor" onchange="updateCorrectionFactor(); updateConductorSpec(); calculate();">
               <option value="copper">Tembaga (CU)</option>
               <option value="aluminum">Aluminium (AL)</option>
             </select>
@@ -80,12 +68,7 @@
             <label for="cross-section" class="form-label"
               >Luas Penampang (mm²):</label
             >
-            <select
-              class="form-control border-input"
-              id="cross-section"
-              required
-              onchange="updateConductorSpec(); calculate();"
-            >
+            <select class="form-control border-input" id="cross-section" required onchange="updateConductorSpec(); calculate();">
               <option value="0.5">0.5</option>
               <option value="0.75">0.75</option>
               <option value="1">1</option>
@@ -142,12 +125,8 @@
             />
           </div>
         </form>
-        <h4 class="mt-3 text-center">
-          Hasil: <span id="result" class="text-blue">-</span> Ω/km
-        </h4>
-        <h4 class="mt-3 text-center" id="validation-result" class="text-blue">
-          -
-        </h4>
+        <h4 class="mt-3 text-center">Hasil: <span id="result" class="text-blue">-</span> Ω/km</h4>
+        <h4 class="mt-3 text-center" id="validation-result" class="text-blue">-</h4>
       </div>
     </div>
     <footer class="text-center mt-4">
