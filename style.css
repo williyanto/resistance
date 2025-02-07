@@ -1,0 +1,62 @@
+body {
+  background-color: #f8f9fa;
+}
+
+h2 {
+  color: #007bff;
+  margin-top: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+#result {
+  font-weight: bold;
+}
+
+#validation-result {
+  font-weight: bold;
+}
+
+.gray-input {
+  background-color: #e9ecef;
+}
+
+.border-input {
+  border: 1px solid #ced4da;
+}
+
+.form-border {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Resistansi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container mt-3" style="max-width: 600px">
+      <h2 class="mb-3 text-center">Kalkulator Resistansi</h2>
+      <div class="form-border p-4">
+        <div class="d-flex justify-content-center mb-3">
+          <button class="btn btn-primary me-2" onclick="showSpec('IEC')">
+            Spec. IEC
+          </button>
+          <button class="btn btn-info me-2" onclick="showSpec('ICEA')">
+            Spec. ICEA
+          </button>
+          <button class="btn btn-success me-2" onclick="showSpec('AS/NZS')">
+            Spec. AS/NZS
+          </button>
+          <button class="btn btn-warning" onclick="window.print()">
+            Cetak Halaman
+          </button>
+        </div>
+        <form id="calculator-form">
+          <div class="mb-3">
+            <label for="reading" class="form-label">Pembacaan Alat (mΩ):</label>
+            <input
+              type="number"
+              step="any"
+              class="form-control border-input"
+              id="reading"
+              placeholder="Masukkan hasil nilai pembacaan alat"
+              required
+              oninput="calculate()"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="length" class="form-label">Panjang (m):</label>
+            <input
+              type="number"
+              step="any"
+              class="form-control border-input"
+              id="length"
+              placeholder="Masukkan panjang aktual Kabel / Konduktor"
+              required
+              oninput="calculate()"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="temperature" class="form-label">Suhu (°C):</label>
+            <input
+              type="number"
+              step="any"
+              class="form-control border-input"
+              id="temperature"
+              placeholder="Masukkan Suhu saat pengujian"
+              required
+              oninput="updateCorrectionFactor(); calculate();"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="conductor" class="form-label">Bahan Konduktor:</label>
+            <select
+              class="form-control border-input"
+              id="conductor"
+              onchange="updateCorrectionFactor(); updateConductorSpec(); calculate();"
+            >
+              <option value="copper">Tembaga (CU)</option>
+              <option value="aluminum">Aluminium (AL)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="cross-section" class="form-label"
+              >Luas Penampang (mm²):</label
+            >
+            <select
+              class="form-control border-input"
+              id="cross-section"
+              required
+              onchange="updateConductorSpec(); calculate();"
+            >
+              <option value="0.5">0.5</option>
+              <option value="0.75">0.75</option>
+              <option value="1">1</option>
+              <option value="1.5">1.5</option>
+              <option value="2.5">2.5</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="10">10</option>
+              <option value="16">16</option>
+              <option value="25">25</option>
+              <option value="35">35</option>
+              <option value="50">50</option>
+              <option value="70">70</option>
+              <option value="95">95</option>
+              <option value="107">107</option>
+              <option value="120">120</option>
+              <option value="150">150</option>
+              <option value="185">185</option>
+              <option value="240">240</option>
+              <option value="300">300</option>
+              <option value="400">400</option>
+              <option value="500">500</option>
+              <option value="630">630</option>
+              <option value="800">800</option>
+              <option value="1000">1000</option>
+              <option value="1200">1200</option>
+              <option value="1400">1400</option>
+              <option value="1600">1600</option>
+              <option value="1800">1800</option>
+              <option value="2000">2000</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="correction-factor" class="form-label"
+              >Faktor Koreksi Suhu:</label
+            >
+            <input
+              type="number"
+              step="any"
+              class="form-control gray-input border-input"
+              id="correction-factor"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="conductor-spec" class="form-label"
+              >Spesifikasi Konduktor:</label
+            >
+            <input
+              type="text"
+              class="form-control gray-input border-input"
+              id="conductor-spec"
+              readonly
+            />
+          </div>
+        </form>
+        <h4 class="mt-3 text-center">
+          Hasil: <span id="result" class="text-blue">-</span> Ω/km
+        </h4>
+        <h4 class="mt-3 text-center" id="validation-result" class="text-blue">
+          -
+        </h4>
+      </div>
+    </div>
+    <footer class="text-center mt-4">
+      <p>&copy; Williyanto Adi 2025 | Versi 1.0.41</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
